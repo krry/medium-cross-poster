@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>medium post</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+    <header>
+      <h1>
+        Post to medium
+      </h1>
+    </header>
+
+    <main id="feed-address">
+      <form>
+        <label>Feed URL <input type="url" id="feed-url" name="feed-url"></label>
+        <button type="submit">Load</button>
+      </form>
+    </main>
+
+    <main id="results">
+
+    </main>
+
+    <main id="post">
+      <form>
+        <label>Token <input type="text" id="token" maxlength="100" name="token" placeholder="token"></label>
+        <label>PubId <input type="text" id="pubId"></label>
+        <label>Canonical URL <input id="url" type="url" name="url"></label>
+        <label>Title <input id="title" type="text" name="title"></label>
+        <label>Content <textarea id="content" name="content"></textarea></label>
+        <button type="submit">Submit</button>
+      </form>
+      <section class="dreams">
+        <ul id="dreams">
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <h2>Webhook usage</h2>
+      <p>i.e. if you want to use this from an automation tool like IFTTT with RSS being the trigger and the action being a Maker Webhook.</p>
+      <pre><code>POST /draft
+content-type: application/json
+body: {
+  token: {medium auth token},
+  pubId: {publicationId},
+  title: {post title},
+  content: {post HTML},
+  url: {canonical URL}
+}</code></pre>
+      <hr>
+      <h2>Notes</h2>
+      <ol>
+        <li>Create token from <a href="https://medium.com/me/settings">settings</a> and &quot;Integration tokens&quot; (keep this private)</li>
+        <li>Find your <a href="https://help.medium.com/hc/en-us/articles/226875507-How-to-find-your-publication-ID-for-IFTTT-">publication id</a> (add <code>?format=json</code> to the end of your publication homepage and store <code>id</code>)</li>
+      </ol>
+
+    <hr>
+      <a href="https://glitch.com">
+        Remix this in Glitch
+      </a>
+    </footer>
+
+    <script src="/client.js"></script>
+
+  </body>
+</html>
